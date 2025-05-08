@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:pertemuan6/model/todo.dart';
 
 part 'todo_event.dart';
 part 'todo_state.dart';

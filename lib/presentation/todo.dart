@@ -44,8 +44,8 @@ class TodoPage extends StatelessWidget {
                           ).then((selectedDate) {
                             if (selectedDate != null) {
                               context.read<TodoBloc>().add(
-                                    TodoSelectedDate(date: selectedDate),
-                                  );
+                                TodoSelectedDate(date: selectedDate),
+                              );
                             }
                           });
                         },
@@ -77,15 +77,14 @@ class TodoPage extends StatelessWidget {
                     FilledButton(
                       onPressed: () {
                         if (_key.currentState!.validate()) {
-                          final selectedDate =
-                              context.read<TodoBloc>().state;
+                          final selectedDate = context.read<TodoBloc>().state;
                           if (selectedDate is TodoLoaded) {
                             context.read<TodoBloc>().add(
-                                  TodoEventAdd(
-                                    title: _controller.text,
-                                    date: selectedDate.selectedDate!,
-                                  ),
-                                );
+                              TodoEventAdd(
+                                title: _controller.text,
+                                date: selectedDate.selectedDate!,
+                              ),
+                            );
                             _controller.clear();
                             selectedDate.selectedDate = null;
                           }
@@ -141,9 +140,10 @@ class TodoPage extends StatelessWidget {
                                           ? 'Completed'
                                           : 'Not Completed',
                                       style: TextStyle(
-                                        color: todo.isCompleted
-                                            ? Colors.green
-                                            : Colors.red,
+                                        color:
+                                            todo.isCompleted
+                                                ? Colors.green
+                                                : Colors.red,
                                       ),
                                     ),
                                   ],
@@ -152,8 +152,8 @@ class TodoPage extends StatelessWidget {
                                   value: todo.isCompleted,
                                   onChanged: (value) {
                                     context.read<TodoBloc>().add(
-                                          TodoEventComplete(index: index),
-                                        );
+                                      TodoEventComplete(index: index),
+                                    );
                                   },
                                 ),
                               ],
